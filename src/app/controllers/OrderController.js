@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import Order from '../schemas/Order.js'; // Importa o modelo de Order do MongoDB
 import Product from '../models/product.js'; // Importa o modelo de Product do PostgreSQL
 import User from '../models/Users.js'; // Importa o modelo de User do PostgreSQL
-import Category from '../models/category.js'; // Importa o modelo de Category do PostgreSQL
+import Category from '../models/Category.js';
 
 class OrderController {
   async store(req, res) {
