@@ -29,12 +29,10 @@ class Database {
 
   // Método para inicializar a conexão MongoDB (Mongoose)
   initMongoDB() {
-   mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-     useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB conectado com sucesso!'))
-.catch((error) => console.error('Erro ao conectar MongoDB:', error));
+  mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log('✅ Conectado ao MongoDB com sucesso!'))
+  .catch(err => console.error('❌ Erro ao conectar MongoDB:', err));
+
   }
 
   // Método para configurar as associações Sequelize
