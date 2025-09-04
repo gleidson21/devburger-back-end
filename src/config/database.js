@@ -1,16 +1,19 @@
+/* eslint-disable prettier/prettier */
 /**esse eo quarto que configuraçao*/
 /**depois daqui eu vou gerar minhas migrations */
 
 export default {
   dialect: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: 'postgres',
-  database: 'devburger',
+  url: process.env.DATABASE_URL,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
   define: {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
   },
-};
+}

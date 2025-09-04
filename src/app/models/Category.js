@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // src/app/models/Category.js
 
 import { DataTypes, Model } from 'sequelize';

@@ -20,7 +20,7 @@ class Database {
 
   // Método para inicializar a conexão PostgreSQL (Sequelize)
   initPostgreSQL() {
-    this.pgConnection = new Sequelize(configDatabase); // Renomeado para 'pgConnection' para evitar conflitos
+    this.pgConnection = new Sequelize(configDatabase.url, configDatabase);
 
     // Inicializa cada modelo Sequelize com a instância da conexão PostgreSQL
     models.forEach((model) => model.init(this.pgConnection));
