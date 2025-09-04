@@ -99,7 +99,7 @@ class ProductControllers {
       });
 
       if (!allProducts || allProducts.length === 0) {
-        return res.status(204).json();
+        return res.status(200).json([]);
       }
 
       const productsWithUrls = allProducts.map((product) => {

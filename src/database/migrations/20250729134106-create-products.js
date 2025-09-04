@@ -20,7 +20,7 @@ export default {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
-      category: {
+      category_id: {
         type: Sequelize.STRING,
         allowNull: false,
       },
