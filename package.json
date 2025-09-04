@@ -5,8 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "prestart": "node db-migrate.js",
-    "db:migrate": "node db-migrate.js",
+    "prestart": "node run-migrations.js",
+    "db:migrate": "node run-migrations.js",
     "dev": "node --watch src/server.js",
     "lint": "eslint \"src/**/*.js\"",
     "lint:fix": "eslint \"src/**/*.js\" --fix",
@@ -31,8 +31,9 @@
     "pg-connection-string": "^2.9.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7",
-      "sequelize-cli": "^6.6.3",
+    "sequelize-cli": "^6.6.3",
     "stripe": "^18.5.0",
+    "umzug": "^3.8.2",
     "yup": "^1.6.1"
   },
   "devDependencies": {
@@ -42,7 +43,6 @@
     "eslint-plugin-prettier": "^5.5.3",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
-  
     "sucrase": "^3.35.0"
   }
 }
