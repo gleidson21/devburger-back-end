@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**esse eo quinto que configuro */
 
 import Sequelize from 'sequelize';
@@ -28,15 +29,12 @@ class Database {
 
   // Método para inicializar a conexão MongoDB (Mongoose)
   initMongoDB() {
-    // Conexão CORRETA com o Mongoose
-    mongoose
-      .connect('mongodb://localhost:27017/devburger', {
-        // Essas opções são boas práticas, mas podem ser opcionais dependendo da versão do Mongoose/Node
-        // useNewUrlParser: true,
-        // useUnifiedTopology: true,
-      })
-      .then(() => console.log('MongoDB conectado com sucesso!'))
-      .catch((error) => console.error('Erro ao conectar MongoDB:', error));
+   mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+     useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB conectado com sucesso!'))
+.catch((error) => console.error('Erro ao conectar MongoDB:', error));
   }
 
   // Método para configurar as associações Sequelize
