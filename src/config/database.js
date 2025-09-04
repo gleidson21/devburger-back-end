@@ -4,7 +4,7 @@
 
 export default {
   dialect: 'postgres',
-  url: process.env.MONGO_URL,
+  url: process.env.DATABASE_URL,
   dialectOptions: {
     ssl: {
       require: true,
