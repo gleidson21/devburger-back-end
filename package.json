@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "postinstall": "npx sequelize-cli db:migrate --env production",
+    "prestart": "node db-migrate.js",
+    "db:migrate": "node db-migrate.js",
     "dev": "node --watch src/server.js",
     "lint": "eslint \"src/**/*.js\"",
     "lint:fix": "eslint \"src/**/*.js\" --fix",
