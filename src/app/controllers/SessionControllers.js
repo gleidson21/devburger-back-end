@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // src/app/controllers/SessionControllers.js
 
 import User from '../models/Users.js';
