@@ -61,7 +61,7 @@ class ProductControllers {
 
       const productWithUrl = {
         ...newProduct.toJSON(),
-        url: `http://localhost:3000/files/${path}`,
+        url: `https://devburger-back-end.onrender.com/category-file/${product.path}`,
       };
 
       return res.status(201).json({
@@ -105,7 +105,7 @@ class ProductControllers {
       const productsWithUrls = allProducts.map((product) => {
         return {
           ...product.toJSON(),
-          url: `http://localhost:3000/files/${product.path}`,
+          url: `https://devburger-back-end.onrender.com/category-file/${product.path}`,
         };
       });
 
@@ -215,7 +215,7 @@ class ProductControllers {
 
       const productWithUrl = {
         ...updatedProduct.toJSON(),
-        url: `http://localhost:3000/files/${updatedProduct.path}`,
+        url: `https://devburger-back-end.onrender.com/category-file/${product.path}`,
       };
 
       return res.status(200).json({
