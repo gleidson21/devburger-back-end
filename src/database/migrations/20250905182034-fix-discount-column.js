@@ -1,18 +1,15 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
-export default {
-  async up(queryInterface, { DataTypes }) {
-    // Adiciona a coluna 'discount' à tabela 'products'
-    await queryInterface.addColumn('products', 'discount', {
-      type: DataTypes.INTEGER,
-      allowNull: true, // Pode ser null no início
-      defaultValue: 0, // Valor padrão
-    });
-  },
+export const up = async (queryInterface, { DataTypes }) => {
+  await queryInterface.addColumn('products', 'discount', {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    defaultValue: 0
+  });
+};
 
-  async down(queryInterface) {
-    // Remove a coluna 'discount' se a migração for revertida
-    await queryInterface.removeColumn('products', 'discount');
-  },
+export const down = async (queryInterface) => {
+  await queryInterface.removeColumn('products', 'discount');
 };
