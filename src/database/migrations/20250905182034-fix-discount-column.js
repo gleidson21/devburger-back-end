@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
-export async function up(queryInterface, Sequelize) {
+import { DataTypes } from 'sequelize';
+
+export async function up(queryInterface) {
   await queryInterface.addColumn('products', 'discount', {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: true,
     defaultValue: 0
   });
