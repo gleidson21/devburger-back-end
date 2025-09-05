@@ -1,11 +1,10 @@
 /* eslint-disable prettier/prettier */
 /**esse eo quinto que configuro */
-
 import Sequelize from 'sequelize';
 import mongoose from 'mongoose'; // <<< Importação CORRETA do Mongoose
 
 import User from '../app/models/Users.js';
-import configDatabase from '../config/database.js';
+import sequelize from '../config/database.js';
 import Product from '../app/models/product.js'; // Ajustado para 'Product' com P maiúsculo
 import Category from '../app/models/Category.js';
 
@@ -21,8 +20,7 @@ class Database {
 
   // Método para inicializar a conexão PostgreSQL (Sequelize)
   initPostgreSQL() {
-    this.pgConnection = new Sequelize(configDatabase.url, configDatabase);
-
+   this.pgConnection = sequelize;
     // Inicializa cada modelo Sequelize com a instância da conexão PostgreSQL
     models.forEach((model) => model.init(this.pgConnection));
   }
