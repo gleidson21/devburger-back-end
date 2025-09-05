@@ -176,7 +176,7 @@ class ProductControllers {
         if (!categoryExists) {
           return res.status(404).json({
             error:
-              'Nova categoria não encontrada. Forneça um ID de categoria válido.',
+              'categoria não encontrada. Forneça um ID de categoria válido.',
           });
         }
       }
