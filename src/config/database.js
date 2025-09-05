@@ -1,19 +1,21 @@
 /* eslint-disable prettier/prettier */
-/**esse eo quarto que configuraçao*/
-/**depois daqui eu vou gerar minhas migrations */
+import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
+dotenv.config();
 
-export default {
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
-  url: process.env.DATABASE_URL,
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false,
-    },
+      rejectUnauthorized: false // cuidado: em produção, o ideal é usar um certificado válido
+    }
   },
   define: {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
   },
-}
+});
+
+export default sequelize;
