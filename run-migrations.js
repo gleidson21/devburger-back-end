@@ -25,7 +25,7 @@ const sequelize = new Sequelize(connectionString, {
 
 const umzug = new Umzug({
   migrations: {
-    glob: path.join(__dirname, 'src', 'database', 'migrations', '*.js'),
+    glob: path.join(__dirname,'database', 'migrations', '*.js'),
   },
   context: sequelize,
   storage: new SequelizeStorage({ sequelize }),
@@ -34,7 +34,8 @@ const umzug = new Umzug({
 
 async function runMigrations() {
   try {
-    console.log('Running migrations...');
+   const pending = await umzug.pending();
+console.log('Pending migrations:', pending.map(m => m.name));
     await umzug.up();
     console.log('Migrations finished successfully!');
   } catch (error) {
