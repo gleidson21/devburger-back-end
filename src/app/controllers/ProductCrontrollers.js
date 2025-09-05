@@ -89,13 +89,6 @@ class ProductControllers {
           'path',
           'category_id',
         ], // <<<< Adicionado category_id aqui
-        include: [
-          {
-            model: Category,
-            as: 'category',
-            attributes: ['id', 'name'],
-          },
-        ],
       });
 
       if (!allProducts || allProducts.length === 0) {
