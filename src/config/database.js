@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 export default {
-  production: {
+  development: {
     url: process.env.DATABASE_URL,
     dialect: 'postgres',
     define: {
