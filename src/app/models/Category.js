@@ -2,7 +2,7 @@
 import { DataTypes, Model } from 'sequelize';
 
 class Category extends Model {
-  static initModel(sequelize) {
+  static init(sequelize) {
     super.init({
       name: {
         type: DataTypes.STRING,
