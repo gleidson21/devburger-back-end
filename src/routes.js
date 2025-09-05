@@ -28,7 +28,7 @@ routes.post('/create-payment-intent', PaymentController.createPaymentIntent);
 
 // --- APLICAÇÃO DO MIDDLEWARE DE AUTENTICAÇÃO (para todas as rotas abaixo) ---
 // Todas as rotas definidas ABAIXO desta linha exigirão um token JWT válido.
-routes.use(authMiddleware);
+
 
 // --- ROTAS PROTEGIDAS POR ADMIN (VIA MIDDLEWARE 'adminAuth') ---
 // Para criar produto: exige autenticação e permissão de admin
@@ -45,12 +45,11 @@ routes.put('/categories/:id', adminAuth, upload.single('file'), CategoryControll
 routes.get('/orders', adminAuth, OrderController.index);
 // Para atualizar status de pedido: exige autenticação e permissão de admin
 routes.put('/orders/:id/status', adminAuth, OrderController.updateStatus);
-
 // --- ROTAS PROTEGIDAS (APENAS AUTENTICAÇÃO, SEM NECESSIDADE DE ADMIN) ---
 // Essas rotas não precisam de adminAuth, apenas de um token de usuário válido.
-routes.get('/products', ProductController.index);
-routes.get('/categories', CategoryController.index);
-routes.post('/orders', OrderController.store);
-routes.get('/my-orders', OrderController.show);
+routes.get('/products', authMiddleware, ProductController.index);
+routes.get('/categories', authMiddleware, CategoryController.index);
+routes.post('/orders', authMiddleware, OrderController.store);
+routes.get('/my-orders', authMiddleware, OrderController.show);
 
 export default routes;
