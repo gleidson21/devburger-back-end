@@ -2,9 +2,9 @@
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
-export const up = async (queryInterface, { DataTypes }) => {
+export const up = async (queryInterface, Sequelize) => {
   await queryInterface.addColumn('products', 'discount', {
-    type: DataTypes.INTEGER,
+    type: Sequelize.DataTypes.INTEGER,
     allowNull: true,
     defaultValue: 0
   });
