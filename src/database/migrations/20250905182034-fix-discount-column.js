@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 'use strict';
 
+import { DataTypes } from 'sequelize';
+
 /** @type {import('sequelize-cli').Migration} */
-export const up = async (queryInterface, Sequelize) => {
+export const up = async (queryInterface) => {
   await queryInterface.addColumn('products', 'discount', {
-    type: Sequelize.DataTypes.INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: true,
     defaultValue: 0
   });
