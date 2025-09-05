@@ -1,15 +1,18 @@
 'use strict';
 
+/** @type {import('sequelize-cli').Migration} */
 export default {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, { DataTypes }) {
+    // Adiciona a coluna 'discount' à tabela 'products'
     await queryInterface.addColumn('products', 'discount', {
-      type: Sequelize.DataTypes.INTEGER,
-      allowNull: true, // Ou false, se a coluna for obrigatória
-      defaultValue: 0, // Um valor padrão é uma boa prática
+      type: DataTypes.INTEGER,
+      allowNull: true, // Pode ser null no início
+      defaultValue: 0, // Valor padrão
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  async down(queryInterface) {
+    // Remove a coluna 'discount' se a migração for revertida
     await queryInterface.removeColumn('products', 'discount');
   },
 };
