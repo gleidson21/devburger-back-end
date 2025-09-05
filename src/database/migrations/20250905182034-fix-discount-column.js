@@ -1,14 +1,15 @@
-/* eslint-disable prettier/prettier */
-import { DataTypes } from 'sequelize';
+'use strict';
 
-export async function up(queryInterface) {
-  await queryInterface.addColumn('products', 'discount', {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-    defaultValue: 0
-  });
-}
+export default {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addColumn('products', 'discount', {
+      type: Sequelize.DataTypes.INTEGER,
+      allowNull: true, // Ou false, se a coluna for obrigatória
+      defaultValue: 0, // Um valor padrão é uma boa prática
+    });
+  },
 
-export async function down(queryInterface) {
-  await queryInterface.removeColumn('products', 'discount');
-}
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn('products', 'discount');
+  },
+};
