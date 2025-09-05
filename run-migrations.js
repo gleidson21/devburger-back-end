@@ -25,7 +25,7 @@ const sequelize = new Sequelize(connectionString, {
 
 const umzug = new Umzug({
   migrations: {
-    glob: path.join(__dirname,'database', 'migrations', '*.js'),
+    glob: path.join(__dirname,'src','database', 'migrations', '*.js'),
   },
   context: sequelize,
   storage: new SequelizeStorage({ sequelize }),
