@@ -6,8 +6,10 @@ import Product from './product.js';
 Category.init(sequelize);
 Product.init(sequelize);
 
-Category.associate({ Product });
-Product.associate({ Category });
+const models = { Category, Product };
+
+Category.associate(models);
+Product.associate(models);
 
 export { Category, Product };
 
