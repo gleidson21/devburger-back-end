@@ -27,7 +27,11 @@ const umzug = new Umzug({
   migrations: {
     glob: path.join(__dirname,'src','database', 'migrations', '*.js'),
   },
-  context: sequelize.getQueryInterface(),
+  context: {
+  queryInterface: sequelize.getQueryInterface(),
+  Sequelize
+},
+
   storage: new SequelizeStorage({ sequelize }),
   logger: console,
 });
