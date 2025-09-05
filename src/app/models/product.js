@@ -2,7 +2,7 @@
 import { DataTypes, Model } from 'sequelize';
 
 class Product extends Model {
-  static initModel(sequelize) {
+  static init(sequelize) {
     super.init({
       name: DataTypes.STRING,
       price: DataTypes.DECIMAL(10, 2),
