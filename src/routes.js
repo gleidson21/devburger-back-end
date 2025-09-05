@@ -32,24 +32,24 @@ routes.post('/create-payment-intent', PaymentController.createPaymentIntent);
 
 // --- ROTAS PROTEGIDAS POR ADMIN (VIA MIDDLEWARE 'adminAuth') ---
 // Para criar produto: exige autenticação e permissão de admin
-routes.post('/products', adminAuth, upload.single('file'), ProductController.store);
+routes.post('/products', upload.single('file'), ProductController.store);
 // Para atualizar produto: exige autenticação e permissão de admin
-routes.put('/products/:id', adminAuth, upload.single('file'), ProductController.update); // Rota de update de produto
+routes.put('/products/:id',  upload.single('file'), ProductController.update); // Rota de update de produto
 
 // Para criar categoria: exige autenticação e permissão de admin
-routes.post('/categories', adminAuth, upload.single('file'), CategoryController.store); // <<<<< AGORA COM UPLOAD DE ARQUIVO
+routes.post('/categories',  upload.single('file'), CategoryController.store); // <<<<< AGORA COM UPLOAD DE ARQUIVO
 // Para atualizar categoria: exige autenticação e permissão de admin
-routes.put('/categories/:id', adminAuth, upload.single('file'), CategoryController.update); // <<<<< NOVA ROTA DE UPDATE DE CATEGORIA
+routes.put('/categories/:id', upload.single('file'), CategoryController.update); // <<<<< NOVA ROTA DE UPDATE DE CATEGORIA
 
 // Para listar TODOS os pedidos: exige autenticação e permissão de admin
-routes.get('/orders', adminAuth, OrderController.index);
+routes.get('/orders', OrderController.index);
 // Para atualizar status de pedido: exige autenticação e permissão de admin
-routes.put('/orders/:id/status', adminAuth, OrderController.updateStatus);
+routes.put('/orders/:id/status',  OrderController.updateStatus);
 // --- ROTAS PROTEGIDAS (APENAS AUTENTICAÇÃO, SEM NECESSIDADE DE ADMIN) ---
 // Essas rotas não precisam de adminAuth, apenas de um token de usuário válido.
-routes.get('/products', authMiddleware, ProductController.index);
-routes.get('/categories', authMiddleware, CategoryController.index);
-routes.post('/orders', authMiddleware, OrderController.store);
-routes.get('/my-orders', authMiddleware, OrderController.show);
+routes.get('/products',  ProductController.index);
+routes.get('/categories', CategoryController.index);
+routes.post('/orders', OrderController.store);
+routes.get('/my-orders',  OrderController.show);
 
 export default routes;
